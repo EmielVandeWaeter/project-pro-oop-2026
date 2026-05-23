@@ -1,4 +1,6 @@
-﻿namespace project_pro_oop_2026
+﻿using System;
+
+namespace project_pro_oop_2026
 {
     internal class Program
     {
@@ -19,7 +21,7 @@
     {
         public string Input { get; set; } = "";
         public int Aantalcharacters { get; set; } = 0;
-        public int Waarde { get; set; } = 0;
+        public int totaalWaardeKarakters { get; set; } = 0;
     }
     class Bepalen : Scrabble
     { 
@@ -29,13 +31,16 @@
         }
         public void Berekenwaarde()
         {
+            Random random = new Random();
             try 
             {
                 foreach (char c in Input) 
                 {
                     Aantalcharacters++;
+                    totaalWaardeKarakters += random.Next(0, 26);
                 }
                 Console.WriteLine("Aantal characters: " + Aantalcharacters);
+                Console.WriteLine("Totale waarde: " + totaalWaardeKarakters);
             }
             catch 
             {
@@ -45,13 +50,16 @@
         }
         public void Berekenwaarde(string naam) 
         {
+            Random random = new Random();
             try
             {
                 foreach (char c in Input)
                 {
                     Aantalcharacters++;
+                    totaalWaardeKarakters += random.Next(0, 26);
                 }
                 Console.WriteLine("beste " + naam + ", in uw zin zitten " + Aantalcharacters + " characters");
+                Console.WriteLine("Totale waarde: " + totaalWaardeKarakters);
             }
             catch
             {
