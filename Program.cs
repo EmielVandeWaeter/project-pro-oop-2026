@@ -28,8 +28,17 @@
         }
         public void Characters()
         {
-            try { }
-            catch { }
+            try 
+            {
+                foreach (char c in Input) 
+                {
+                    Aantalcharacters++;
+                }
+            }
+            catch 
+            {
+                Console.WriteLine("Er is een fout opgetreden, probeer opnieuw.");
+            }
         }
     }
 }
