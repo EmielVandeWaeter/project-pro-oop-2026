@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
             Console.WriteLine("Geef een woord of zin in");
-            Console.ReadLine();
+            Bepalen gebruiker = new Bepalen();
         }
     }
     interface IScrabble
@@ -22,6 +22,9 @@
     }
     class Bepalen : Scrabble
     { 
-    
+        public Bepalen()
+        {
+            Input = Console.ReadLine();
+        }
     }
 }
