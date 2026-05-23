@@ -26,9 +26,10 @@
         {
             Input = Console.ReadLine();
         }
-        public void Characters() 
-        { 
-
+        public void Characters()
+        {
+            try { }
+            catch { }
         }
     }
 }
