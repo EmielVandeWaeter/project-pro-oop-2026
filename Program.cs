@@ -26,5 +26,9 @@
         {
             Input = Console.ReadLine();
         }
+        public void Characters() 
+        { 
+
+        }
     }
 }
