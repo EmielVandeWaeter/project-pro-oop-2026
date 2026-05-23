@@ -8,4 +8,10 @@
             Console.ReadLine();
         }
     }
+    interface IScrabble
+    {
+        string Input { get; set; }
+        public int Aantalcharacters { get; set; }
+        public int Waarde { get; set; }
+    }
 }
