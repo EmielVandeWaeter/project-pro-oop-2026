@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Geef een woord of zin in");
+            Console.ReadLine();
         }
     }
 }
