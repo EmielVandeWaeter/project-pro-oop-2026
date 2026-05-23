@@ -20,4 +20,8 @@
         public int Aantalcharacters { get; set; } = 0;
         public int Waarde { get; set; } = 0;
     }
+    class Bepalen : Scrabble
+    { 
+    
+    }
 }
