@@ -6,40 +6,48 @@ namespace project_pro_oop_2026
     {
         static void Main(string[] args)
         {
-            //naam inlezen van de gebruiker
-            Console.WriteLine("Wat is u naam?");
-            string naam = Console.ReadLine();
+            //Variabelen declareren
+            string naam = "";
+            try
+            {   //naam inlezen van de gebruiker
+                Console.WriteLine("Wat is u naam?");
+                naam = Console.ReadLine();
+            }
+            catch 
+            {
+                Console.WriteLine("Geef een geldige naam in");
+            }
 
             //De input van de gebruiker vragen
             Console.WriteLine("Geef een woord of zin in");
 
             //Object aanmaken voor klasse "bepalen"
-            Bepalen gebruiker = new Bepalen();
+            Scrabble gebruiker = new Scrabble();
 
             //De functie "Berekenwaarde" aanroepen + polymorfisme(naam)
             gebruiker.Berekenwaarde(naam);
         }
     }
 
-    //abstractie: interface met Input property
-    interface IScrabble
+    //abstractie: interface met methode bereken waarde (gedrag)
+    interface iBereken
     {
-        string Input { get; set; }
+        void Berekenwaarde();
     }
 
     //Basisklasse: encapsulatie via autoproperties
-    class Scrabble : IScrabble
+    class ScrabbleBase
     {
         public string Input { get; set; } = "";
-        public int Aantalcharacters { get; set; } = 0;
-        public int totaalWaardeKarakters { get; set; } = 0;
+        public int AantalKarakters { get; set; } = 0;
+        public int TotaalWaardeKarakters { get; set; } = 0;
     }
 
     //Overerving: Bepalen erft van Scrabble.
-    class Bepalen : Scrabble
+    class Scrabble : ScrabbleBase, iBereken
     {
         //Constructor, deze code word uitgevoerd wanneer het object word aangemaakt.
-        public Bepalen()
+        public Scrabble()
         {
             Input = Console.ReadLine();
         }
@@ -55,18 +63,17 @@ namespace project_pro_oop_2026
                 foreach (char c in Input)
                 {
                     //Elke keer door de loop is Aantalcharacters + 1
-                    Aantalcharacters++;
+                    AantalKarakters++;
                     //+= telt de nieuwe waarde op bij de bestaande waarde van de variabelen.
-                    totaalWaardeKarakters += random.Next(0, 26);
+                    TotaalWaardeKarakters += random.Next(0, 26);
                 }
-                Console.WriteLine("Aantal characters: " + Aantalcharacters);
-                Console.WriteLine("Totale waarde: " + totaalWaardeKarakters);
+                Console.WriteLine("Aantal characters: " + AantalKarakters);
+                Console.WriteLine("Totale waarde: " + TotaalWaardeKarakters);
             }
             catch
             {
                 Console.WriteLine("Er is een fout opgetreden, probeer opnieuw.");
             }
-
         }
         //Polymorfisme versie 2 met naam
         public void Berekenwaarde(string naam) 
@@ -78,13 +85,13 @@ namespace project_pro_oop_2026
             {
                 foreach (char c in Input)
                 {
-                    //Elke keer door de loop is Aantalcharacters + 1
-                    Aantalcharacters++;
+                    //Elke keer door de loop is AantalKarakters + 1
+                    AantalKarakters++;
                     //+= telt de nieuwe waarde op bij de bestaande waarde van de variabelen.
-                    totaalWaardeKarakters += random.Next(0, 26);
+                    TotaalWaardeKarakters += random.Next(0, 26);
                 }
-                Console.WriteLine("beste " + naam + ", in uw zin zitten " + Aantalcharacters + " characters");
-                Console.WriteLine("Totale waarde: " + totaalWaardeKarakters);
+                Console.WriteLine("beste " + naam + ", in uw zin zitten " + AantalKarakters + " characters");
+                Console.WriteLine("Totale waarde: " + TotaalWaardeKarakters);
             }
             catch
             {
